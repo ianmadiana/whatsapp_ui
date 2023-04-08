@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:whatsapp_ui/widgets/tab_bar_item.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage>
           )
         ],
         backgroundColor: const Color(0xFF075E55),
-        title: const Text("Whatsapp Botleg"),
+        title: const Text("Whatsapp Bootleg"),
         // TabBar
         bottom: TabBar(
           controller: tabC,
@@ -96,6 +97,8 @@ class ChatsPage extends StatelessWidget {
     required this.chats,
   });
 
+  String tanggal = DateTime.now().toIso8601String();
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -119,8 +122,10 @@ class ChatsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  //intl library date format
                   Text(
-                    faker.date.time(),
+                    // DateFormat.E().format(DateTime.now())
+                    tanggal,
                   ),
                   Container(
                     alignment: Alignment.center,
